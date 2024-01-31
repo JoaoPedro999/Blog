@@ -46,15 +46,9 @@ db.connect((err) => {
     res.render('cadastro');
   });
 
-  app.get('/posts', (req, res) => {
-    res.render('posts');
-  });
-
-
   app.get('/pubform', (req, res) => {
     res.render('pubform');
   });
-
 
   //*
 
@@ -125,7 +119,7 @@ app.get('/posts', (req, res) => {
       return res.status(500).send('Erro interno. <a href="/posts">Tente novamente</a>');
     }
     console.log(results);
-    res.render('posts', { req:req, posts: results });
+    res.render('posts', { req:req, posts: results });  
   });
 });
 

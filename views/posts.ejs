@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,78 +11,94 @@
 <style>
     /* styles.css */
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
 
-h2 {
-    color: #333;
-}
+    h2 {
+        color: #333;
+    }
 
-#post-container {
-    display: flex;
-    flex-wrap: wrap;
-}
+    #post-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-.post {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px;
-    width: 300px;
-}
+    .post {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px;
+        width: 300px;
+    }
 
-form {
-    max-width: 400px;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-label {
-    display: block;
-    margin-bottom: 8px;
-}
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
 
-input,
-textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-}
+    input,
+    textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+    }
 
-button {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-}
+    button {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
 
-a {
-    color: #333;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
-}
-
+    a {
+        color: #333;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 10px;
+    }
 </style>
+
 <body>
     <h2>Posts</h2>
-    
+    res.render('posts', { req:req, posts: results });
+
     <!-- Exibe os posts -->
+    <%= req %>
     <div id="post-container">
         <!-- Aqui serão exibidos os posts -->
-        <% posts.forEach(posts => { %>
+        <% posts.forEach(post=> { %>
             <div class="post">
-                <h3><%= posts.name %></h3>
-                <p><%= posts.post %></p>
+                <h3>
+                    <%= post.name %>
+                </h3>
+                <p>
+                    <%= post.post %>
+                </p>
+            </div>
+        <% }) %>
+        <% posts.forEach(post=> { %>
+            <div class="post">
+                <h3>
+                    <%= post.name %>
+                </h3>
+                <p>
+                    <%= post.post %>
+                </p>
             </div>
         <% }); %>
     </div>
@@ -89,4 +106,5 @@ a {
     <!-- Botão para redirecionar para o formulário de publicação -->
     <a href="/pubform">Criar novo post</a>
 </body>
+
 </html>
