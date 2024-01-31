@@ -15,7 +15,8 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f4f4f4;
+        background-color: #0c164e;
+
     }
 
     h2 {
@@ -87,15 +88,53 @@
 .create-post-button:hover {
     background-color: #555;
 }
+
+header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
     
 </style>
 
 <body>
     <header>
-        <h2 style="text-align: center;">Posts</h2>
-        <!-- Add a logout button -->
-        <a href="/logout" style="float: right; color: white; text-decoration: none; padding: 10px;">Logout</a>
+        <h1>Posts</h1>
     </header>
+
+    <nav>
+        <a href="/index">Home</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/logout">Logout</a>
+    </nav>
 
     <div id="post-container">
         <!-- Aqui serão exibidos os posts -->
@@ -113,6 +152,11 @@
 
     <!-- Transforme o link "Criar novo post" em um botão estilizado -->
     <a href="/pubform" class="create-post-button">Criar novo post</a>
+
+    <footer>
+        &copy; 2024 Meu Blog. Todos os direitos reservados.
+    </footer>
+
 </body>
 
 </html>

@@ -51,6 +51,10 @@ db.connect((err) => {
     res.render('pubform');
   });
 
+   // ROTAS
+   app.get('/sobre', (req, res) => {
+    res.render('sobre');
+  });
   //*
 
   app.post('/login', (req, res) => {
