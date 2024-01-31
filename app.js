@@ -51,6 +51,11 @@ db.connect((err) => {
   });
 
 
+  app.get('/pubform', (req, res) => {
+    res.render('pubform');
+  });
+
+
   //*
 
   app.post('/login', (req, res) => {
@@ -94,32 +99,36 @@ db.connect((err) => {
     }
   });
 });
-  
-// Adicione essas linhas ao seu arquivo app.js
 
-// ...
+
+app.post('/pubform', (req, res) => {
+  const { name, post } = req.body;
+  const query = 'INSERT INTO posts (name, post) VALUES (?, ? )';
+
+  db.query(query, [name, post], (err, result) => {
+    if (err) {
+      console.error('Erro ao cadastrar o post:', err);
+      res.status(500).send('Erro ao cadastrar o post. <a href="/pubform">Tente novamente</a>');
+    } else {
+      console.log('Post cadastrado com sucesso!');
+      res.status(500).send('Post cadastrado com sucesso! <a href="/posts">ver</a>');
+    }
+  });
+});
+
+
 
 app.get('/posts', (req, res) => {
+  db.query('SELECT * FROM posts', (err, results) => {
+    if (err) {
+      console.error('Erro na consulta SQL:', err);
+      return res.status(500).send('Erro interno. <a href="/posts">Tente novamente</a>');
+    }
 
-  const posts = [
-    { title: 'Post 1', content: 'Conteúdo do Post 1' },
-    { title: 'Post 2', content: 'Conteúdo do Post 2' },
-
-  ];
-
-  res.render('posts', { posts });
+    res.render('posts', { post: results });
+  });
 });
 
-app.get('/formulario-publicacao', (req, res) => {
-  res.render('form-publicacao');
-});
-
-app.post('/criar-post', (req, res) => {
-
-  res.redirect('/posts');
-});
-
-// ...
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

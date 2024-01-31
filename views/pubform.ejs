@@ -1,14 +1,13 @@
-<!-- posts.ejs -->
+<!-- form-publicacao.ejs -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posts</title>
+    <title>Formulário de Publicação</title>
 </head>
 <style>
-    /* styles.css */
 
 body {
     font-family: Arial, sans-serif;
@@ -73,20 +72,17 @@ a {
 
 </style>
 <body>
-    <h2>Posts</h2>
+    <h2>Formulário de Publicação</h2>
     
-    <!-- Exibe os posts -->
-    <div id="post-container">
-        <!-- Aqui serão exibidos os posts -->
-        <% posts.forEach(post => { %>
-            <div class="post">
-                <h3><%= post.name %></h3>
-                <p><%= post.post %></p>
-            </div>
-        <% }); %>
-    </div>
-
-    <!-- Botão para redirecionar para o formulário de publicação -->
-    <a href="/formulario-publicacao">Criar novo post</a>
+    <!-- Formulário para criar um novo post -->
+    <form action="/pubform" method="POST">
+        <label for="name">Título:</label>
+        <input type="name" id="name" name="name" required>
+        <br>
+        <label for="post">Conteúdo:</label>
+        <textarea id="post" name="post" rows="4" required></textarea>
+        <br>
+        <button type="submit">Publicar</button>
+    </form>
 </body>
 </html>
