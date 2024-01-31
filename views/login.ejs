@@ -217,7 +217,6 @@ input[type="submit"]:hover{
   background: #f7f7f7;
   border: 1px solid rgba(99, 102, 102, 0.8);
    
-  -webkit-box-shadow: 5px;
   border-radius: 5px;
    
   -webkit-animation-duration: 0.5s;
@@ -228,24 +227,6 @@ input[type="submit"]:hover{
   animation-timing-function: ease;
   animation-fill-mode: both;
 }
-/* Efeito ao clicar no botão ( Ir para Login ) */
-#paracadastro:target ~ .content #cadastro,
-#paralogin:target ~ .content #login{
-  z-index: 2;
-  -webkit-animation-name: fadeInLeft;
-  animation-name: fadeInLeft;
- 
-  -webkit-animation-delay: .1s;
-  animation-delay: .1s;
-}
- 
-/* Efeito ao clicar no botão ( Cadastre-se ) */
-#registro:target ~ .content #login,
-#paralogin:target ~ .content #cadastro{
-  -webkit-animation-name: fadeOutLeft;
-  animation-name: fadeOutLeft;
-}
-
   </style>
 
 <body>

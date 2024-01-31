@@ -71,17 +71,35 @@
         display: inline-block;
         margin-top: 10px;
     }
+    .create-post-button {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.create-post-button:hover {
+    background-color: #555;
+}
+    
 </style>
 
 <body>
-    <h2>Posts</h2>
-    res.render('posts', { req:req, posts: results });
+    <header>
+        <h2 style="text-align: center;">Posts</h2>
+        <!-- Add a logout button -->
+        <a href="/logout" style="float: right; color: white; text-decoration: none; padding: 10px;">Logout</a>
+    </header>
 
-    <!-- Exibe os posts -->
-    <%= req %>
     <div id="post-container">
         <!-- Aqui serão exibidos os posts -->
-        <% posts.forEach(post=> { %>
+        <% posts.forEach(post => { %>
             <div class="post">
                 <h3>
                     <%= post.name %>
@@ -91,20 +109,10 @@
                 </p>
             </div>
         <% }) %>
-        <% posts.forEach(post=> { %>
-            <div class="post">
-                <h3>
-                    <%= post.name %>
-                </h3>
-                <p>
-                    <%= post.post %>
-                </p>
-            </div>
-        <% }); %>
     </div>
 
-    <!-- Botão para redirecionar para o formulário de publicação -->
-    <a href="/pubform">Criar novo post</a>
+    <!-- Transforme o link "Criar novo post" em um botão estilizado -->
+    <a href="/pubform" class="create-post-button">Criar novo post</a>
 </body>
 
 </html>
