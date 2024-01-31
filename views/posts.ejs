@@ -78,15 +78,15 @@ a {
     <!-- Exibe os posts -->
     <div id="post-container">
         <!-- Aqui serão exibidos os posts -->
-        <% posts.forEach(post => { %>
+        <% posts.forEach(posts => { %>
             <div class="post">
-                <h3><%= post.name %></h3>
-                <p><%= post.post %></p>
+                <h3><%= posts.name %></h3>
+                <p><%= posts.post %></p>
             </div>
         <% }); %>
     </div>
 
     <!-- Botão para redirecionar para o formulário de publicação -->
-    <a href="/formulario-publicacao">Criar novo post</a>
+    <a href="/pubform">Criar novo post</a>
 </body>
 </html>

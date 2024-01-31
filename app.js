@@ -124,8 +124,8 @@ app.get('/posts', (req, res) => {
       console.error('Erro na consulta SQL:', err);
       return res.status(500).send('Erro interno. <a href="/posts">Tente novamente</a>');
     }
-
-    res.render('posts', { post: results });
+    console.log(results);
+    res.render('posts', { req:req, posts: results });
   });
 });
 
