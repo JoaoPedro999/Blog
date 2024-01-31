@@ -46,6 +46,7 @@ db.connect((err) => {
     res.render('cadastro');
   });
 
+
   app.get('/pubform', (req, res) => {
     res.render('pubform');
   });
